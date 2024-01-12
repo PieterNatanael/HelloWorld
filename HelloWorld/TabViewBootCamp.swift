@@ -9,7 +9,23 @@ import SwiftUI
 
 struct TabViewBootCamp: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            Text("a")
+                .badge(2)
+                .tabItem {
+                    Label("Received1", systemImage: "tray.and.arrow.down.fill")
+                }
+            Text("a")
+                .tabItem {
+                    Label("Sent", systemImage: "tray.and.arrow.up.fill")
+                }
+            Text("a")
+                .badge("!")
+                .tabItem {
+                    Label("Account", systemImage: "person.crop.circle.fill")
+                }
+        }
+        
     }
 }
 

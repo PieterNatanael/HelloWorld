@@ -8,8 +8,40 @@
 import SwiftUI
 
 struct ContextMenuView: View {
+    @State var backgroundColor : Color = Color.red
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 20.0){
+            Image(systemName: "star")
+                .font(.title)
+            Text("We are 33")
+                .font(.headline)
+            Text("username are 33")
+                .font(.headline)
+        }
+        .foregroundColor(.white)
+        .padding(30)
+        .background(backgroundColor.cornerRadius(30) )
+        .contextMenu(menuItems: {
+            Button(action: {
+                backgroundColor = .yellow
+            }, label: {
+                Label("Share", systemImage: "Flame.fill")
+            })
+            Button(action: {
+                backgroundColor = .blue
+            }, label: {
+                Text("Report")
+            })
+            Button(action: {
+                backgroundColor = .green
+            }, label: {
+                HStack {
+                    Text("Like")
+                    Image(systemName: "flame")
+                }
+            })
+        })
     }
 }
 

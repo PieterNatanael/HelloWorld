@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct TransitionView: View {
+    
+    @State var showOp : Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            
+            VStack{
+                Button("Button") {
+                    showOp.toggle()
+                }
+                
+                Spacer()
+                
+                if showOp {
+                    
+                    RoundedRectangle(cornerRadius: 30)
+                        .frame(height: 400)
+//                        .transition(.slide)
+                        .transition(.move(edge: .bottom))
+                        .animation(.spring)
+                    
+                }
+               
+                
+            }
+        }
     }
 }
 

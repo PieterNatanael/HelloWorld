@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct SliderView: View {
+    @State var sliderValue : Double = 10
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Value")
+            //Text(".\(sliderValue)")
+            Text(String(format: "%.1f", sliderValue))
+            //Slider(value: $sliderValue)
+                .accentColor(.red)
+            //Slider(value: $sliderValue, in: 0...100)
+            Slider(value: $sliderValue, in: 1...10, step: 1)
+        }
     }
 }
 

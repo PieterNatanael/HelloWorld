@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct DatePickerView: View {
+    @State var datePicker : Date = Date()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        DatePicker("Select Date", selection: $datePicker)
+            .accentColor(.blue)
+            .datePickerStyle(CompactDatePickerStyle())
     }
 }
 

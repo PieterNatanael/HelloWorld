@@ -11,7 +11,7 @@ import SwiftUI
 let tiga  : String = "Tiga"
 let tigaAngka : Int = 3
 
-struct Check2: View {
+struct ScrollView2: View {
     var body: some View {
         ScrollView{
             VStack{
@@ -43,5 +43,5 @@ struct Check2: View {
 }
 
 #Preview {
-    Check2()
+    ScrollView2()
 }

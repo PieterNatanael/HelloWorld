@@ -9,10 +9,31 @@ import SwiftUI
 
 struct DarkModeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            ScrollView{
+                VStack(spacing :20){
+                    Text("This is primary color")
+                        .foregroundColor(.primary)
+                    Text("This is secondary color")
+                        .foregroundStyle(.secondary)
+                    Text("This is Black color")
+                        .foregroundStyle(.black)
+                    Text("this is White color 1")
+                        .foregroundStyle(.white)
+                    
+                }
+            }
+            .navigationTitle("Dark Mode View")
+        }
     }
 }
 
 #Preview {
-    DarkModeView()
+    Group {
+        DarkModeView()
+            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        
+        DarkModeView()
+            .preferredColorScheme(.light)
+    }
 }
