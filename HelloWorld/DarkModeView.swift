@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DarkModeView: View {
+    
+    @Environment (\.colorScheme) var colorScheme
+    
     var body: some View {
         NavigationView{
             ScrollView{
@@ -20,6 +23,12 @@ struct DarkModeView: View {
                         .foregroundStyle(.black)
                     Text("this is White color 1")
                         .foregroundStyle(.white)
+                    //globally adaptive color
+                    Text("This is adaptive color")
+                        .foregroundStyle(Color("AdaptiveColor"))
+                    //locally adaptive color
+                    Text("Locally adaptive color")
+                        .foregroundStyle(colorScheme == .dark ? .green : .red)
                     
                 }
             }
@@ -29,11 +38,8 @@ struct DarkModeView: View {
 }
 
 #Preview {
-    Group {
+
         DarkModeView()
             .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
         
-        DarkModeView()
-            .preferredColorScheme(.light)
     }
-}
