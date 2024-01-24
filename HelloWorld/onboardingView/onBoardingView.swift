@@ -56,12 +56,14 @@ struct onBoardingView: View {
 
 extension onBoardingView {
     private var bottomButton : some View {
-        Text("Button")
+        Text(onBoardingState == 0 ? "sign up" :
+                onBoardingState == 3 ? "Finish" : "next"
+        )
             .font(.title)
-            .foregroundStyle(Color.white)
+            .foregroundStyle(Color.blue)
             .frame(height: 50)
             .frame(maxWidth: .infinity)
-            .background(Color.orange)
+            .background(Color.white)
             .cornerRadius(10)
             .onTapGesture {
                 handleNextButton()
@@ -75,7 +77,7 @@ extension onBoardingView {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)
-                .foregroundColor(.blue)
+                .foregroundColor(.white)
             Text("Find Your Match")
                 .font(.largeTitle)
             Text("this is tutorial of how use appstorage and other swiftui technique")
@@ -83,6 +85,7 @@ extension onBoardingView {
             Spacer()
             
         }
+        .foregroundColor(.white)
         .padding(20)
     }
     private var addNameSection : some View {
@@ -97,6 +100,7 @@ extension onBoardingView {
             Spacer()
             
         }
+        .foregroundColor(.white)
         .padding(20)
     }
     private var addAgeSection : some View {
@@ -113,6 +117,7 @@ extension onBoardingView {
             Spacer()
             Spacer()
         }
+        .foregroundColor(.white)
     }
     
     private var addGenderSection : some View {
@@ -134,14 +139,22 @@ extension onBoardingView {
             Spacer()
             Spacer()
         }
+        .foregroundColor(.white)
     }
     
 }
 
 extension onBoardingView{
     func handleNextButton() {
-        withAnimation(.spring()){
-            onBoardingState += 1
+        
+        if onBoardingState == 3 {
+            //sign in
+        } else {
+            withAnimation(.spring()){
+                onBoardingState += 1
+            }
         }
+        
+        
     }
 }
