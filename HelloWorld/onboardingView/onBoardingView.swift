@@ -20,6 +20,15 @@ struct onBoardingView: View {
     @State var name : String = ""
     @State var age : Double = 50
     @State var gender : String = ""
+    @State var alertTitle : String = ""
+    @State var showAlert : Bool = false
+    
+    //app storage
+    @AppStorage("name") var currentUserName :String?
+    @AppStorage("age") var currentUserAge : Int?
+    @AppStorage("gender") var currentUserGender : String?
+    @AppStorage("signed-In") var currentUserSignIn : Bool = false
+    
     var body: some View {
         ZStack{
             //content
@@ -44,6 +53,9 @@ struct onBoardingView: View {
             }
             .padding(30)
         }
+        .alert(isPresented: $showAlert, content: {
+            return Alert(title: Text(alertTitle))
+        })
     }
 
 }
@@ -147,7 +159,26 @@ extension onBoardingView {
 extension onBoardingView{
     func handleNextButton() {
         
+        //inputs
+        switch onBoardingState {
+        case 1:
+            guard name.count >= 3
+            else {
+                showAlert(title: "you need more then 3 character")
+                return
+            }
+        case 3: guard gender.count > 1 else {
+            showAlert(title: "choose your gender")
+            return
+        }
+            
+        default:
+            break
+        }
+        
+        //go to next screen
         if onBoardingState == 3 {
+        signIn()
             //sign in
         } else {
             withAnimation(.spring()){
@@ -155,6 +186,18 @@ extension onBoardingView{
             }
         }
         
-        
+        func signIn(){
+            currentUserName = name
+            currentUserAge = Int(age)
+            currentUserGender = gender
+            withAnimation(.spring()){
+                currentUserSignIn = true
+            }
+          
+        }
+    }
+    func showAlert(title : String) {
+        alertTitle = title
+        showAlert.toggle()
     }
 }

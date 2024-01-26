@@ -11,8 +11,8 @@ import SwiftUI
 struct HelloWorldApp: App {
     var body: some Scene {
         WindowGroup {
-            IntroView()
-//            ContentView()
+//            IntroView()
+            ContentView()
         }
     }
 }
