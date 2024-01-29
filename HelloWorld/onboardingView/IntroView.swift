@@ -24,9 +24,11 @@ struct IntroView: View {
             .ignoresSafeArea()
             
             if currentUserSignIn {
-                Text("profile")
+                profileView()
+                    .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .top)))
             } else {
                 onBoardingView()
+                    .transition(.asymmetric(insertion: .move(edge: .top), removal: .move(edge: .bottom)))
             }
             
             //if user sign in

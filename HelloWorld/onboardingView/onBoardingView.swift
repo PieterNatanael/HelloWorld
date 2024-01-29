@@ -168,7 +168,7 @@ extension onBoardingView{
                 return
             }
         case 3: guard gender.count > 1 else {
-            showAlert(title: "choose your gender")
+            showAlert(title: "ypu need to choose your gender")
             return
         }
             
