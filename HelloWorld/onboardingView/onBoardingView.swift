@@ -68,7 +68,7 @@ struct onBoardingView: View {
 
 extension onBoardingView {
     private var bottomButton : some View {
-        Text(onBoardingState == 0 ? "sign up" :
+        Text(onBoardingState == 0 ? "please sign up" :
                 onBoardingState == 3 ? "Finish" : "next"
         )
             .font(.title)
@@ -92,7 +92,7 @@ extension onBoardingView {
                 .foregroundColor(.white)
             Text("Find Your Match")
                 .font(.largeTitle)
-            Text("this is tutorial of how use appstorage and other swiftui technique")
+            Text("yes this is tutorial of how use appstorage and other swiftui technique")
             Spacer()
             Spacer()
             
